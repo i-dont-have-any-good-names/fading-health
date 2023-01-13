@@ -1,55 +1,30 @@
 #include <iostream>
 #include <string>
+using std::string; using std::cout; using std::cin;
 
-using std::cout; using std::string; using std::cin;
-
-class Player {
+class Calculator {
 public:
-    int coal = 20;
-    int iron = 30;
-
-    string call;
-    string username;
-    int level;
-    int xp;
-    int levelUp;
-    void Levels() {
-        if(xp >= 100) {
-            xp -= 100;
-            level += 1;
-        }
+  string call;
+  int num;
+  int num1;
+  void eq() {
+    cout << "Calculator: ";
+    cin >> call;
+    cout << "Enter your first number: ";
+    cin >> num;
+    cout << "Enter your second number: ";
+    cin >> num1;
+    if (call == "add") {
+      num1 += num;
+    } else if (call == "sub") {
+      num1 -= num;
     }
-
-    void LevelsUp() {
-        if(call == "coal") {
-            xp += coal;
-            cout << "+ " << coal << "\n";
-        }
-        else if(call == "iron") {
-            xp += iron;
-            cout << "+ " << coal << "\n";
-        }
-        else {
-            cout << "+ 0";
-        }
-    }
-
-    void Stats() {
-        cout << "Username - "<< username << "\n";
-        cout << "Level - "<< level << "\n";
-        cout << "XP - "<< xp << "\n";
-    }
+    cout << "Your answer is: " << num1 << "\n";
+  }
 };
 
 int main() {
-    Player player1;
-    player1.username = "Car";
-    player1.level = 10;
-    player1.xp = 50;
-    player1.Levels();
-    cout << "Mine: ";
-    cin >> player1.call;
-    player1.LevelsUp();
-    player1.Stats();
-    return 0;
+  Calculator cal;
+  cal.eq();
+  return 0;
 }
