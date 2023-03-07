@@ -1,30 +1,23 @@
-#include <iostream>
-#include <string>
-using std::string; using std::cout; using std::cin;
+#include <stdio.h>
 
-class Calculator {
+class Cal {
 public:
-  string call;
-  int num;
-  int num1;
-  void eq() {
-    cout << "Calculator: ";
-    cin >> call;
-    cout << "Enter your first number: ";
-    cin >> num;
-    cout << "Enter your second number: ";
-    cin >> num1;
-    if (call == "add") {
-      num1 += num;
-    } else if (call == "sub") {
-      num1 -= num;
+    int num;
+    int num1;
+    char option[16];
+    void func() {
+        scanf("%d", &num);
+        scanf("%d", &num1);
+        scanf("%s", option);
+        if (option == "add") {
+            num += num1;
+            printf("%d", num);
+        }
     }
-    cout << "Your answer is: " << num1 << "\n";
-  }
 };
 
 int main() {
-  Calculator cal;
-  cal.eq();
-  return 0;
+    Cal cal;
+    cal.func();
+    return 0;
 }
